@@ -1,7 +1,5 @@
 let getDataFlag = true;
-
 const target = document.querySelector('.target');
-console.log(target);
 
 const showPreloader = () => {
     let preloader = document.querySelector('img');
@@ -18,7 +16,7 @@ const getData = () => {
         .then(response => response.json())
         .then(data => {
             let line = document.createElement('hr');
-            document.body.appendChild(line);
+            document.querySelector('.users').appendChild(line);
 
             for (let user of data) {
                 let userId = document.createElement('p');
@@ -29,9 +27,9 @@ const getData = () => {
                 userName.innerText = `User Name: ${user.name}`;
                 userWeb.innerHTML = `<p>User URL: ${user.website}<br>--------</p>`;
 
-                document.body.appendChild(userId);
-                document.body.appendChild(userName);
-                document.body.appendChild(userWeb);
+                document.querySelector('.users').appendChild(userId);
+                document.querySelector('.users').appendChild(userName);
+                document.querySelector('.users').appendChild(userWeb);
             };
 
             hidePreloader();
